@@ -499,7 +499,7 @@ if ticker_input:
 
         # TABLE
 
-        df = pd.DataFrame({
+        df = pd.DataFrame(
 
  metrics = [
 
