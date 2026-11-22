@@ -502,6 +502,17 @@ if ticker_input:
 
  metrics = [
 
+...
+]
+
+df = pd.DataFrame(
+    metrics,
+    columns=[
+        "Metric",
+        "Value"
+    ]
+)
+
     ("P/E", pe),
     ("Forward P/E", forward_pe),
     ("PEG", peg),
