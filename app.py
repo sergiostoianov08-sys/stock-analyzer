@@ -505,40 +505,40 @@ if ticker_input:
 
                 metrics = [
 
-    ("P/E", pe),
-    ("Forward P/E", forward_pe),
-    ("PEG", peg),
-    ("P/S", price_sales),
-    ("P/B", price_book),
-    ("EV/EBITDA", ev_ebitda),
+            ("P/E", pe),
+            ("Forward P/E", forward_pe),
+            ("PEG", peg),
+            ("P/S", price_sales),
+            ("P/B", price_book),
+            ("EV/EBITDA", ev_ebitda),
 
-    ("ROE %", roe),
-    ("ROA %", roa),
-    ("ROIC %", roic),
+            ("ROE %", roe),
+            ("ROA %", roa),
+            ("ROIC %", roic),
 
-    ("Gross Margin %", gross_margin),
-    ("Operating Margin %", operating_margin),
-    ("Net Margin %", net_margin),
+            ("Gross Margin %", gross_margin),
+            ("Operating Margin %", operating_margin),
+            ("Net Margin %", net_margin),
 
-    ("Revenue Growth %", revenue_growth),
-    ("Earnings Growth %", earnings_growth),
+            ("Revenue Growth %", revenue_growth),
+            ("Earnings Growth %", earnings_growth),
 
-    ("Debt/Equity", debt_equity),
+            ("Debt/Equity", debt_equity),
 
-    ("Current Ratio", current_ratio),
-    ("Quick Ratio", quick_ratio),
+            ("Current Ratio", current_ratio),
+            ("Quick Ratio", quick_ratio),
 
-    ("FCF Yield %", fcf_yield),
+            ("FCF Yield %", fcf_yield),
 
-    ("Dividend Yield %", dividend_yield),
+            ("Dividend Yield %", dividend_yield),
 
-    ("Beta", beta),
+            ("Beta", beta),
 
-    ("Volatility %", volatility),
+            ("Volatility %", volatility),
 
-    ("Sharpe Ratio", sharpe_ratio),
+            ("Sharpe Ratio", sharpe_ratio),
 
-    ("Max Drawdown %", max_drawdown)
+            ("Max Drawdown %", max_drawdown)
 
 ]
 
