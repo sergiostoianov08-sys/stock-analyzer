@@ -5,6 +5,8 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import ta
+from ta.trend import MACD
+from ta.volatility import BollingerBands
 import math
 
 st.set_page_config(
