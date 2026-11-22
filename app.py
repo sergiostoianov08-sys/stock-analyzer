@@ -499,7 +499,6 @@ if ticker_input:
 
         # TABLE
 
-
  metrics = [
 
 ...
