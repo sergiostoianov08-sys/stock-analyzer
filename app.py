@@ -226,6 +226,17 @@ if ticker_input:
             .mean()
         )
 
+        bb = BollingerBands(
+            hist["Close"]
+        )
+
+        hist["BB_UPPER"] = (
+            bb.bollinger_hband()
+        )
+
+        hist["BB_LOWER"] = (
+            bb.bollinger_lband()
+        )
         current_price = (
             hist["Close"]
             .iloc[-1]
