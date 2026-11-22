@@ -291,78 +291,78 @@ if ticker_input:
         )
 
         roa = pct(
-    clean(
-        info.get(
-            "returnOnAssets"
+            clean(
+                info.get(
+                    "returnOnAssets"
+                )
+            )
         )
-    )
-)
 
-operating_margin = pct(
-    clean(
-        info.get(
-            "operatingMargins"
+        operating_margin = pct(
+            clean(
+                info.get(
+                    "operatingMargins"
+                )
+            )
         )
-    )
-)
 
-net_margin = pct(
-    clean(
-        info.get(
-            "profitMargins"
+        net_margin = pct(
+            clean(
+               info.get(
+                   "profitMargins"
+               )
+            )
         )
-    )
-)
 
-price_sales = clean(
-    info.get(
-        "priceToSalesTrailing12Months"
-    )
-)
-
-price_book = clean(
-    info.get(
-        "priceToBook"
-    )
-)
-
-current_ratio = clean(
-    info.get(
-        "currentRatio"
-    )
-)
-
-quick_ratio = clean(
-    info.get(
-        "quickRatio"
-    )
-)
-
-dividend_yield = pct(
-    clean(
-        info.get(
-            "dividendYield"
+        price_sales = clean(
+            info.get(
+                "priceToSalesTrailing12Months"
+            )
         )
-    )
-)
 
-beta = clean(
-    info.get(
-        "beta"
-    )
-)
+        price_book = clean(
+            info.get(
+                "priceToBook"
+            )
+        )
 
-total_cash = clean(
-    info.get(
-        "totalCash"
-    )
-)
+        current_ratio = clean(
+            info.get(
+                "currentRatio"
+            )
+        )
 
-total_debt = clean(
-    info.get(
-        "totalDebt"
-    )
-)
+        quick_ratio = clean(
+            info.get(
+                "quickRatio"
+            )
+        )
+
+        dividend_yield = pct(
+            clean(
+                info.get(
+                    "dividendYield"
+                )
+            )
+        )
+
+        beta = clean(
+            info.get(
+                "beta"
+            )
+        )
+
+        total_cash = clean(
+            info.get(
+                "totalCash"
+            )
+        )
+
+        total_debt = clean(
+            info.get(
+                "totalDebt"
+            )
+        )
         market_cap = clean(
             info.get(
                 "marketCap"
