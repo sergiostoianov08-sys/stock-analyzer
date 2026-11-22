@@ -202,7 +202,8 @@ if ticker_input:
             )
             .rsi()
         )
-macd_indicator = MACD(
+
+        macd_indicator = MACD(
     hist["Close"]
 )
 
