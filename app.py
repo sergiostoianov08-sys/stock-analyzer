@@ -501,7 +501,7 @@ if ticker_input:
 
         df = pd.DataFrame({
 
-   metrics = [
+ metrics = [
 
     ("P/E", pe),
     ("Forward P/E", forward_pe),
@@ -546,51 +546,7 @@ df = pd.DataFrame(
         "Metric",
         "Value"
     ]
-)        
-
-
-
-            ],
-
-            "Value":[
-
-                show(pe),
-
-                show(forward_pe),
-
-                show(peg),
-
-                show(ev_ebitda),
-
-                show(roe,True),
-
-                show(
-                    revenue_growth,
-                    True
-                ),
-
-                show(
-                    earnings_growth,
-                    True
-                ),
-
-                show(
-                    fcf_yield,
-                    True
-                ),
-
-                show(
-                    debt,
-                    True
-                ),
-
-                human(
-                    market_cap
-                )
-
-            ]
-
-        })
+)    
 
         st.subheader(
             "Fundamentals"
