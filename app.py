@@ -326,4 +326,298 @@ if ticker_input:
             buffett += 1
 
         if revenue_growth and revenue_growth > 0:
-    
+            buffett += 1
+
+        if fcf_yield and fcf_yield > 5:
+            buffett += 1
+
+        # Lynch
+
+        lynch = 0
+
+        if peg and peg < 1.5:
+            lynch += 1
+
+        if earnings_growth and earnings_growth > 15:
+            lynch += 1
+
+        if debt and debt < 100:
+            lynch += 1
+
+        # DCF
+
+        fair_value = dcf_model(
+            fcf,
+            shares,
+            growth,
+            discount,
+            terminal,
+            years
+        )
+
+        mos = None
+
+        if fair_value:
+
+            mos = (
+                (
+                    fair_value
+                    - current_price
+                )
+                /
+                fair_value
+            ) * 100
+
+        # TOP METRICS
+
+        c1,c2,c3,c4 = st.columns(4)
+
+        c1.metric(
+            "Price",
+            f"${current_price:.2f}"
+        )
+
+        c2.metric(
+            "RSI",
+            f"{current_rsi:.1f}"
+        )
+
+        c3.metric(
+            "DCF",
+            (
+                f"${fair_value:.2f}"
+                if fair_value
+                else "N/A"
+            )
+        )
+
+        c4.metric(
+            "Margin Of Safety",
+            (
+                f"{mos:.1f}%"
+                if mos is not None
+                else "N/A"
+            )
+        )
+
+        # TABLE
+
+        df = pd.DataFrame({
+
+            "Metric":[
+
+                "P/E",
+                "Forward P/E",
+                "PEG",
+                "EV/EBITDA",
+
+                "ROE",
+
+                "Revenue Growth",
+
+                "Earnings Growth",
+
+                "FCF Yield",
+
+                "Debt/Equity",
+
+                "Market Cap"
+
+            ],
+
+            "Value":[
+
+                show(pe),
+
+                show(forward_pe),
+
+                show(peg),
+
+                show(ev_ebitda),
+
+                show(roe,True),
+
+                show(
+                    revenue_growth,
+                    True
+                ),
+
+                show(
+                    earnings_growth,
+                    True
+                ),
+
+                show(
+                    fcf_yield,
+                    True
+                ),
+
+                show(
+                    debt,
+                    True
+                ),
+
+                human(
+                    market_cap
+                )
+
+            ]
+
+        })
+
+        st.subheader(
+            "Fundamentals"
+        )
+
+        st.dataframe(
+            df,
+            use_container_width=True
+        )
+
+        # SCORES
+
+        col1,col2 = st.columns(2)
+
+        col1.metric(
+            "Buffett",
+            f"{buffett}/5"
+        )
+
+        col2.metric(
+            "Lynch",
+            f"{lynch}/3"
+        )
+
+        # HEATMAP
+
+        if (
+            fair_value
+            and shares
+        ):
+
+            growths = np.arange(
+                3,
+                16,
+                1
+            )
+
+            discounts = np.arange(
+                6,
+                16,
+                1
+            )
+
+            matrix = []
+
+            for d in discounts:
+
+                row = []
+
+                for g in growths:
+
+                    value = dcf_model(
+                        fcf,
+                        shares,
+                        g,
+                        d,
+                        terminal,
+                        years
+                    )
+
+                    row.append(
+                        value
+                    )
+
+                matrix.append(
+                    row
+                )
+
+            heatmap = pd.DataFrame(
+                matrix,
+                index=
+                discounts,
+                columns=
+                growths
+            )
+
+            st.subheader(
+                "DCF Heatmap"
+            )
+
+            fig = px.imshow(
+
+                heatmap,
+
+                text_auto=".0f",
+
+                aspect="auto",
+
+                color_continuous_scale="RdYlGn"
+
+            )
+
+            st.plotly_chart(
+                fig,
+                use_container_width=True
+            )
+
+        # PRICE CHART
+
+        st.subheader(
+            "Price Chart"
+        )
+
+        fig = go.Figure()
+
+        fig.add_trace(
+
+            go.Scatter(
+
+                x=hist.index,
+
+                y=hist["Close"],
+
+                name="Price"
+
+            )
+
+        )
+
+        fig.add_trace(
+
+            go.Scatter(
+
+                x=hist.index,
+
+                y=hist["SMA50"],
+
+                name="SMA50"
+
+            )
+
+        )
+
+        fig.add_trace(
+
+            go.Scatter(
+
+                x=hist.index,
+
+                y=hist["SMA200"],
+
+                name="SMA200"
+
+            )
+
+        )
+
+        st.plotly_chart(
+            fig,
+            use_container_width=True
+        )
+
+    except Exception as e:
+
+        st.error(
+            str(e)
+        )
