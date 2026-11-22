@@ -534,21 +534,13 @@ metrics = [
 
 ]
 
-df = pd.DataFrame(
+    df = pd.DataFrame(
     metrics,
-    columns=[
-        "Metric",
-        "Value"
-    ]
-)
-        st.subheader(
-            "Fundamentals"
-        )
+    columns=[ "Metric", "Value" ]
+    )
+    st.subheader("Fundamentals")
 
-        st.dataframe(
-            df,
-            use_container_width=True
-        )
+    st.dataframe( df,use_container_width=True )
 
         # SCORES
 
