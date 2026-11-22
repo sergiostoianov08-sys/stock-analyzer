@@ -290,6 +290,79 @@ if ticker_input:
             )
         )
 
+        roa = pct(
+    clean(
+        info.get(
+            "returnOnAssets"
+        )
+    )
+)
+
+operating_margin = pct(
+    clean(
+        info.get(
+            "operatingMargins"
+        )
+    )
+)
+
+net_margin = pct(
+    clean(
+        info.get(
+            "profitMargins"
+        )
+    )
+)
+
+price_sales = clean(
+    info.get(
+        "priceToSalesTrailing12Months"
+    )
+)
+
+price_book = clean(
+    info.get(
+        "priceToBook"
+    )
+)
+
+current_ratio = clean(
+    info.get(
+        "currentRatio"
+    )
+)
+
+quick_ratio = clean(
+    info.get(
+        "quickRatio"
+    )
+)
+
+dividend_yield = pct(
+    clean(
+        info.get(
+            "dividendYield"
+        )
+    )
+)
+
+beta = clean(
+    info.get(
+        "beta"
+    )
+)
+
+total_cash = clean(
+    info.get(
+        "totalCash"
+    )
+)
+
+total_debt = clean(
+    info.get(
+        "totalDebt"
+    )
+)
         market_cap = clean(
             info.get(
                 "marketCap"
