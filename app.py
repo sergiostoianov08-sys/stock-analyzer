@@ -202,7 +202,17 @@ if ticker_input:
             )
             .rsi()
         )
+macd_indicator = MACD(
+    hist["Close"]
+)
 
+hist["MACD"] = (
+    macd_indicator.macd()
+)
+
+hist["MACD_SIGNAL"] = (
+    macd_indicator.macd_signal()
+)
         hist["SMA50"] = (
             hist["Close"]
             .rolling(50)
