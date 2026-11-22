@@ -503,23 +503,61 @@ if ticker_input:
 
             "Metric":[
 
-                "P/E",
-                "Forward P/E",
-                "PEG",
-                "EV/EBITDA",
+                metrics = [
 
-                "ROE",
+    ("P/E", pe),
+    ("Forward P/E", forward_pe),
+    ("PEG", peg),
+    ("P/S", price_sales),
+    ("P/B", price_book),
+    ("EV/EBITDA", ev_ebitda),
 
-                "Revenue Growth",
+    ("ROE %", roe),
+    ("ROA %", roa),
+    ("ROIC %", roic),
 
-                "Earnings Growth",
+    ("Gross Margin %", gross_margin),
+    ("Operating Margin %", operating_margin),
+    ("Net Margin %", net_margin),
 
-                "FCF Yield",
+    ("Revenue Growth %", revenue_growth),
+    ("Earnings Growth %", earnings_growth),
 
-                "Debt/Equity",
+    ("Debt/Equity", debt_equity),
 
-                "Market Cap"
+    ("Current Ratio", current_ratio),
+    ("Quick Ratio", quick_ratio),
 
+    ("FCF Yield %", fcf_yield),
+
+    ("Dividend Yield %", dividend_yield),
+
+    ("Beta", beta),
+
+    ("Volatility %", volatility),
+
+    ("Sharpe Ratio", sharpe_ratio),
+
+    ("Max Drawdown %", max_drawdown)
+
+]
+
+metrics_df = pd.DataFrame(
+    metrics,
+    columns=[
+        "Metric",
+        "Value"
+    ]
+)
+
+st.subheader(
+    "Full Analysis"
+)
+
+st.dataframe(
+    metrics_df,
+    use_container_width=True
+)
             ],
 
             "Value":[
