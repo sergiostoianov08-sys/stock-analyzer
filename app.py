@@ -498,19 +498,7 @@ if ticker_input:
         )
 
         # TABLE
-
- metrics = [
-
-...
-]
-
-df = pd.DataFrame(
-    metrics,
-    columns=[
-        "Metric",
-        "Value"
-    ]
-)
+metrics = [
 
     ("P/E", pe),
     ("Forward P/E", forward_pe),
@@ -536,15 +524,12 @@ df = pd.DataFrame(
     ("Quick Ratio", quick_ratio),
 
     ("FCF Yield %", fcf_yield),
-
     ("Dividend Yield %", dividend_yield),
 
     ("Beta", beta),
 
     ("Volatility %", volatility),
-
     ("Sharpe Ratio", sharpe_ratio),
-
     ("Max Drawdown %", max_drawdown)
 
 ]
@@ -555,8 +540,7 @@ df = pd.DataFrame(
         "Metric",
         "Value"
     ]
-)    
-
+)
         st.subheader(
             "Fundamentals"
         )
