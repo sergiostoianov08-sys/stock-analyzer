@@ -501,16 +501,13 @@ try:
     c1.metric(
     "Price",
     f"${current_price:.2f}"
-)
+   )
 
     c2.metric(
-        "DCF",
-        (
-            f"${fair_value:.2f}"
-            if fair_value
-            else "N/A"
+    "DCF",
+    f"${fair_value:.2f}"
+   )
         )
-    )
 
     c3.metric(
         "MOS",
