@@ -496,29 +496,29 @@ try:
     # DASHBOARD
     # =====================================
 
-    c1,c2,c3,c4,c5 = st.columns(6)
+    c1,c2,c3,c4,c5,c6 = st.columns(6)
 
-c1.metric(
+    c1.metric(
     "Price",
     f"${current_price:.2f}"
 )
 
-c2.metric(
+    c2.metric(
     "DCF",
     f"${fair_value:.2f}"
 )
 
-c3.metric(
+    c3.metric(
     "MOS",
     f"{mos:.1f}%"
 )
 
-c4.metric(
+    c4.metric(
     "Score",
     f"{score}/100"
 )
 
-c5.metric(
+    c5.metric(
     "Signal",
     signal
 )
