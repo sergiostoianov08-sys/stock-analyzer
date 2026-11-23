@@ -499,9 +499,9 @@ try:
     c1,c2,c3,c4,c5,c6 = st.columns(6)
 
     c1.metric(
-        "Price",
-        f"${current_price:.2f}"
-    )
+    "Price",
+    f"${current_price:.2f}"
+)
 
     c2.metric(
         "DCF",
